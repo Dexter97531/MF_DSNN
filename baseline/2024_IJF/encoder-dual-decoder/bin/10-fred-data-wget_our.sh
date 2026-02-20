@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+cd ../
+pwd; hostname; date;
+
+## download raw data from fred
+vintage=202207
+
+odoc_M="./data_FRED/${vintage}_Mraw.csv"
+odoc_Q="./data_FRED/${vintage}_Qraw.csv"
+
+
+curl --ssl-no-revoke -L -o "$odoc_M" "https://files.stlouisfed.org/files/htdocs/fred-md/monthly/${vintage}.csv"
+curl --ssl-no-revoke -L -o "$odoc_Q" "https://files.stlouisfed.org/files/htdocs/fred-md/quarterly/${vintage}.csv"
